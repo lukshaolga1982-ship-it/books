@@ -1,0 +1,12 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /gymnasium/{document=**} {
+      allow read, write: if request.auth != null
+        && request.auth.token.email == "lukshaolga1982@gmail.com";
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
