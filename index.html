@@ -1,5 +1,56 @@
-<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Заказ тетрадей — Браславская гимназия</title><link rel="stylesheet" href="style.css"></head><body>
-<section id="login" class="login"><form id="loginForm"><div class="logo">БГ</div><p>Браславская гимназия имени И. Н. Волчкова</p><h1>Заказ рабочих тетрадей</h1><label>Электронная почта<input id="email" type="email" value="lukshaolga1982@gmail.com" required></label><label>Пароль<input id="password" type="password" required></label><button>Войти</button><small id="loginError"></small></form></section>
-<main id="app" hidden><header><div class="logo">БГ</div><div><p>Браславская гимназия имени И. Н. Волчкова</p><h1>Заказ рабочих тетрадей</h1></div><span id="saveStatus">Загрузка…</span><button id="logout">Выйти</button></header><section id="summary" class="summary"></section><div class="layout"><aside><div class="asideHead"><b>Классы и группы</b><button id="addUnit">+</button></div><nav id="units"></nav><button class="wide" id="addUnitBottom">＋ Добавить класс или группу</button></aside><section id="content" class="content"></section></div></main>
-<dialog id="unitDialog"><form method="dialog" id="unitForm"><button class="close" value="cancel">×</button><h2>Новый класс или группа</h2><div class="switch"><button type="button" data-type="class" class="active">Класс</button><button type="button" data-type="group">Учебная группа</button></div><label>Название<input id="unitName" placeholder="Например, 5А" required></label><div class="row"><label>Параллель<select id="unitGrade"></select></label><label>Учащихся<input id="unitStudents" type="number" min="0" value="25"></label></div><button class="primary" value="default">Создать список</button></form></dialog>
-<script src="catalog.js"></script><script type="module" src="app.js"></script></body></html>
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#356b58">
+  <title>Заказ рабочих тетрадей</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <form id="loginForm" class="login-card">
+      <div class="logo">БГ</div>
+      <p class="school">Браславская гимназия имени И. Н. Волчкова</p>
+      <h1>Заказ рабочих тетрадей</h1>
+      <label>Электронная почта<input id="email" type="email" value="lukshaolga1982@gmail.com" autocomplete="username" required></label>
+      <label>Пароль<input id="password" type="password" autocomplete="current-password" required></label>
+      <button id="loginButton" class="primary" type="submit">Войти</button>
+      <p id="loginMessage" class="message" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <main id="application" hidden>
+    <header class="topbar">
+      <div class="logo">БГ</div>
+      <div class="title"><p>Браславская гимназия имени И. Н. Волчкова</p><h1>Заказ рабочих тетрадей</h1></div>
+      <span id="saveStatus" class="save-status">Загрузка…</span>
+      <button id="logoutButton" class="secondary">Выйти</button>
+    </header>
+    <section id="summary" class="summary"></section>
+    <div class="workspace">
+      <aside>
+        <div class="aside-title"><div><b>Мои списки</b><small>Классы и учебные группы</small></div><button id="addTop" class="plus">+</button></div>
+        <nav id="units"></nav>
+        <button id="addBottom" class="add-wide">＋ Добавить класс или группу</button>
+      </aside>
+      <section id="content" class="content"></section>
+    </div>
+  </main>
+
+  <dialog id="unitDialog">
+    <form id="unitForm" method="dialog">
+      <button class="close" type="button" id="closeDialog">×</button>
+      <h2>Новый класс или группа</h2>
+      <p>Для каждого списка можно выбрать собственный комплект.</p>
+      <div class="type-switch"><button type="button" data-type="class" class="active">Класс</button><button type="button" data-type="group">Учебная группа</button></div>
+      <label>Название<input id="unitName" placeholder="Например, 5А" required></label>
+      <div class="form-row"><label>Параллель<select id="unitGrade"></select></label><label>Учащихся<input id="unitStudents" type="number" min="0" value="25" required></label></div>
+      <button type="submit" class="primary">Создать список</button>
+    </form>
+  </dialog>
+
+  <script src="catalog.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,12 +1,20 @@
-# Заказ тетрадей — GitHub Pages + Firebase
+# Заказ рабочих тетрадей
 
-Готовые статические файлы для репозитория `books`.
+Готовый сайт для GitHub Pages и Firebase.
 
-1. Загрузите все файлы из этой папки в корень репозитория.
-2. В Firebase откройте Authentication → Sign-in method и включите Email/Password.
-3. В Authentication → Users создайте пользователя `lukshaolga1982@gmail.com` и задайте пароль.
-4. Откройте Firestore Database и создайте базу.
-5. В Firestore → Rules вставьте содержимое `firestore.rules` и нажмите Publish.
-6. В GitHub откройте Settings → Pages → Deploy from a branch → `main` / `(root)` → Save.
+## Файлы
 
-Данные доступны только авторизованному пользователю с указанным адресом.
+- `index.html` — главная страница;
+- `style.css` — оформление;
+- `app.js` — логика, авторизация и сохранение;
+- `catalog.js` — 338 позиций из прайс-листа;
+- `firestore.rules` — правила доступа к базе.
+
+## Установка
+
+1. Удалите из репозитория старые файлы и папки, не удаляя локальную `.git`.
+2. Поместите пять файлов сайта и этот README в корень репозитория.
+3. В Firebase Authentication включите Email/Password и создайте пользователя `lukshaolga1982@gmail.com`.
+4. В Authentication → Settings → Authorized domains добавьте `lukshaolga1982-ship-it.github.io`.
+5. Создайте Firestore Database, вставьте содержимое `firestore.rules` в Rules и опубликуйте.
+6. В GitHub Settings → Pages выберите ветку `main` и папку `/ (root)`.
